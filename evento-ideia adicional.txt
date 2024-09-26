@@ -1,0 +1,25 @@
+Criamos uma alternativa de criar relatórios interativas, utilizando consultas SQL que podem fornecer algumas das principais métricas, para catalogar as estatísticas, como: 
+
+- Número de pacientes atendidos no hospital por dia.
+- Itens mais vendidos no restaurante.
+- Eventos mais populares (numero de pessoas que compareceram).
+
+Estas consultas podem ser simples e gerariam relatórios que auxiliariam em decisões dos profissionais e gerentes do local. É possível utilizar uma ferramenta visual simples como 
+tabelas do próprio banco de dados para a geração de relatórios. O impacto para o cliente pode ser extremamente significativo. 
+
+
+Querys SQL:
+
+SELECT data_atendimento, COUNT(*) AS total_pacientes
+FROM Atendimento
+GROUP BY data_atendimento;
+
+SELECT item_menu, COUNT(*) AS total_vendas
+FROM Pedido
+GROUP BY item_menu
+ORDER BY total_vendas DESC;
+
+SELECT evento, COUNT(*) AS total_reservas
+FROM ReservaEvento
+GROUP BY evento
+ORDER BY total_reservas DESC;
